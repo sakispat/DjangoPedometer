@@ -4,8 +4,8 @@
 This is the project pedometer for python/django 
 
 ## Images
-<img src="photo/home.png" alt="Home">
-<img src="photo/create.png" alt="Create">
+<img src="/photo/home.png" alt="Home">
+<img src="/photo/create.png" alt="Create">
 
 ```bash
 	# install
