@@ -5,24 +5,25 @@
 
 	<canvas id="steps" data-url="chart"></canvas>
 
-	<form action="." class="form" method="POST">
+	<form id="form" class="mt-5 ml-3">
 		<div class="container">
 			<div class="row">
-				{% csrf_token %}
-				<div class="col">
-					<label for="dateform" class="col-from-label">From Date: </label>
-					<input type="date" name="datefrom" id="dateform" class="form-contol" value="01-01-2020">
+				<div class="col-md-4">
+					<label for="dateform"  class="col-from-label">From Date: </label>
+					<input type="date" required name="datefrom" id="datefrom" class="form-contol" value="01-01-2020">
 				</div>
-				<div class="col">
+				<div class="col-md-4">
 					<label for="dateto" class="col-from-label">To Date: </label>
-					<input type="date" name="dateto" id="dateto" class="form-contol" value="01-01-2025">
+					<input type="date" required name="dateto" id="dateto" class="form-contol" value="01-01-2025">
 				</div>
-				<div class="col">
+				<div class="col-md-4">
 					<input type="submit" class="btn btn-primary" name="Send">
 				</div>
 			</div>
 		</div>
 	</form>
+
+	<div id="output"></div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -55,6 +56,24 @@
 		          	});
 	        	}
 	      	});
+	    });
+
+	    $('#form').on('submit', function(e){
+	    	e.preventDefault();
+	      	$.ajax({
+	           	type : "POST", 
+	           	url: "ajax-chart/", 
+	           	data: {
+		            datefrom : $('#datefrom').val(),
+		            dateto : $('#dateto').val(),
+		            csrfmiddlewaretoken: '{{ csrf_token }}',
+		            dataType: "json",
+		        },   
+		        success: function(data){
+		            $('#output').html(data.msg);
+		        },
+		        failure: function(){}
+	       	});
 	    });
 	</script>
 {% endblock %}
