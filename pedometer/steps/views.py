@@ -1,9 +1,9 @@
+import datetime
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from django.db.models import Sum
 from .models import Step
 from .forms import StepForms
-import datetime
 
 
 def index(request):

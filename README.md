@@ -1,7 +1,7 @@
-# PedometerDjango
+# Pedometer
 
 ## Prjocet
-This is the project pedometer for python/django 
+This is the project pedometer in python3 django v3.1.2
 
 ## Images
 <img src="/photo/home.png" alt="Home">
