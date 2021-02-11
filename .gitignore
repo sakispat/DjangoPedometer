@@ -1,2 +1,4 @@
-env
-photo
+/env/
+/photo/
+.clone
+.pull

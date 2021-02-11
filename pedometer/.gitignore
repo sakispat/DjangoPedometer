@@ -1,3 +1,4 @@
-*__
-db.sqlite3
-*/admin
+pedometer/__pycache__/
+steps/__pycache__/
+pedometer/db.sqlite3
+pedometer/static/admin/
